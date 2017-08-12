@@ -53,5 +53,10 @@ RSpec.describe UsersController, type: :controller do
       wiki :create, params: {user: new_user_attributes}
       expect(assigns(:user).password_confirmation).to eq new_user_attributes[:password_confirmation]
     end
+
+    it "logs the user in after sign up" do
+       wiki :create, user: new_user_attributes
+       expect(session[:user_id]).to eq assigns(:user).id
+     end
   end
 end
