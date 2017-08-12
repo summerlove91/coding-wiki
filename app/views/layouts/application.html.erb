@@ -11,6 +11,12 @@
 
   <body>
     <div class="container">
+      <ul class="nav nav-tabs">
+        <div class="pull-right user-info">
+          <%= link_to "Sign Up", new_user_path %>
+        </div>
+
+      <div class="pull-right user-info">
       <% if flash[:notice] %>
            <div class="alert alert-success">
              <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -21,7 +27,10 @@
              <button type="button" class="close" data-dismiss="alert">&times;</button>
              <%= flash[:alert] %>
            </div>
+
          <% end %>
+      </div>
+      </ul>
     <%= yield %>
   </div>
   </body>
