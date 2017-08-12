@@ -21,6 +21,7 @@ group :production do
  gem 'bootstrap-sass'
  # Used for encrypting User passwords
  gem 'bcrypt'
+ gem 'devise'
 
  group :development, :test do
    gem 'rspec-rails' , '~> 3.6'
