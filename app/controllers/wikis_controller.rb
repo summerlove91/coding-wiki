@@ -1,4 +1,6 @@
 class WikisController < ApplicationController
+  # after_action :verify_authorized, except: :index
+
   def index
     @wikis = Wiki.all
   end
@@ -9,16 +11,24 @@ class WikisController < ApplicationController
 
   def new
     @wiki = Wiki.new
+    authorize @wiki
   end
 
   def edit
     @wiki = Wiki.find(params[:id])
+    authorize @wiki
   end
 
   def create
+    puts "id #{current_user.id}"
      @wiki = Wiki.new
+     @wiki.user = current_user
      @wiki.title = params[:wiki][:title]
      @wiki.body = params[:wiki][:body]
+     puts @wiki.id
+    #  @wiki.user = current_user
+     authorize @wiki
+
 
      if @wiki.save
        flash[:notice] = "Wiki was saved."
@@ -33,6 +43,7 @@ class WikisController < ApplicationController
      @wiki = Wiki.find(params[:id])
      @wiki.title = params[:wiki][:title]
      @wiki.body = params[:wiki][:body]
+     authorize @wiki
 
      if @wiki.save
        flash[:notice] = "Wiki was updated."
@@ -43,15 +54,27 @@ class WikisController < ApplicationController
      end
    end
 
-   def destroy
-     @wiki = Wiki.find(params[:id])
+  # def publish
+  #   @wiki = Wiki.find(params[:id])
+  #   authorize @wiki, :update?
+  #   @wiki.publish!
+  #   redirect_to @wiki
+  # end
+  #
+  # def admin_list
+  #   authorize Wiki
+  # end
 
-     if @wiki.destroy
-       flash[:notice] = "\"#{@wiki.title}\" was deleted successfully."
-       redirect_to wikis_path
-     else
-       flash.now[:alert] = "There was an error deleting the wiki."
-       render :show
-     end
-   end
+  def destroy
+    @wiki = Wiki.find(params[:id])
+    authorize @wiki
+
+    if @wiki.destroy
+      flash[:notice] = "\"#{@wiki.title}\" was deleted successfully."
+      redirect_to wikis_path
+    else
+      flash.now[:alert] = "There was an error deleting the wiki."
+      render :show
+    end
+  end
 end

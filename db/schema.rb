@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170812055435) do
+ActiveRecord::Schema.define(version: 20170815064623) do
 
   create_table "models", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -35,6 +35,9 @@ ActiveRecord::Schema.define(version: 20170812055435) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin", default: false
+    t.boolean "premium", default: false
+    t.boolean "standard", default: true
   end
 
   create_table "wikis", force: :cascade do |t|
@@ -42,6 +45,7 @@ ActiveRecord::Schema.define(version: 20170812055435) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
 end

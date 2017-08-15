@@ -22,6 +22,7 @@ group :production do
  # Used for encrypting User passwords
  gem 'bcrypt'
  gem 'devise'
+ gem 'pundit'
 
  group :development, :test do
    gem 'rspec-rails' , '~> 3.6'
