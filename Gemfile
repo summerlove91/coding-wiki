@@ -23,6 +23,8 @@ group :production do
  gem 'bcrypt'
  gem 'devise'
  gem 'pundit'
+ gem 'stripe'
+ gem 'figaro'
 
  group :development, :test do
    gem 'rspec-rails' , '~> 3.6'

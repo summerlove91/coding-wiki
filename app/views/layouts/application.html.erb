@@ -13,8 +13,12 @@
     <div class="container">
       <ul class="nav nav-tabs">
         <div class="pull-right user-info">
-          <% if current_user %>
+          <% if current_user && standard_user? %>
            <%= current_user.name %> - <%= link_to "Sign Out", session_path(current_user), method: :delete %>
+           <%= link_to "Upgrade to Premium!", new_charge_path %>
+          <% elsif current_user && premium_user? %>
+            <%= current_user.name %> - <%= link_to "Sign Out", session_path(current_user), method: :delete %>
+            <%= link_to "Downgrade to Standard", new_downgrade_path %>
          <% else %>
            <%= link_to "Sign In", new_session_path %> or
            <%= link_to "Sign Up", new_user_path %>

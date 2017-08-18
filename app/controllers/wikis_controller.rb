@@ -25,6 +25,7 @@ class WikisController < ApplicationController
      @wiki.user = current_user
      @wiki.title = params[:wiki][:title]
      @wiki.body = params[:wiki][:body]
+     @wiki.private = params[:wiki][:private]
      puts @wiki.id
     #  @wiki.user = current_user
      authorize @wiki
@@ -43,6 +44,7 @@ class WikisController < ApplicationController
      @wiki = Wiki.find(params[:id])
      @wiki.title = params[:wiki][:title]
      @wiki.body = params[:wiki][:body]
+     @wiki.private = params[:wiki][:private]
      authorize @wiki
 
      if @wiki.save
