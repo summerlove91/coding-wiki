@@ -14,6 +14,10 @@ class User < ApplicationRecord
             length: { minimum: 3, maximum: 254 }
 
   has_secure_password
+  
+  def going_public
+    self.wikis.each { |wiki| puts wiki.publicize }
+  end
 
   # enum role [:standard, :admin, :premium]
 end

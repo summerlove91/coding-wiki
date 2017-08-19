@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!
-  after_action :verify_authorized
+  # before_filter :authenticate_user!
+  # after_action :verify_authorized
 
   def new
      @user = User.new
