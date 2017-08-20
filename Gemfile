@@ -25,6 +25,7 @@ group :production do
  gem 'pundit'
  gem 'stripe'
  gem 'figaro'
+ gem 'redcarpet'
 
  group :development, :test do
    gem 'rspec-rails' , '~> 3.6'
