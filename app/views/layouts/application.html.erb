@@ -1,29 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Coding wiki</title>
+    <title>Code Overflow</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
-
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaijaan|Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <div class="container">
+      <div class="col-md-12 navigation-tabs">
       <ul class="nav nav-tabs">
+        <div class = "logo">
+          <%= link_to "Code Overflow", wikis_path %></div>
+        <div class="nav-links">
         <div class="pull-right user-info">
           <% if current_user && standard_user? %>
-           <%= current_user.name %> - <%= link_to "Sign Out", session_path(current_user), method: :delete %>
+           Hello, <%= current_user.name %> - <%= link_to "Sign Out", session_path(current_user), method: :delete %> or
            <%= link_to "Upgrade to Premium!", new_charge_path %>
           <% elsif current_user && premium_user? %>
-            <%= current_user.name %> - <%= link_to "Sign Out", session_path(current_user), method: :delete %>
+            Hello, <%= current_user.name %> - <%= link_to "Sign Out", session_path(current_user), method: :delete %> or
             <%= link_to "Downgrade to Standard", new_downgrade_path %>
+          <% elsif current_user && admin_user? %>
+            Hello, <%= current_user.name %> - <%= link_to "Sign Out", session_path(current_user), method: :delete %>
          <% else %>
            <%= link_to "Sign In", new_session_path %> or
            <%= link_to "Sign Up", new_user_path %>
          <% end %>
-        </div>
+       </div></div></div>
 
       <div class="pull-right user-info">
       <% if flash[:notice] %>
@@ -42,5 +49,8 @@
       </ul>
     <%= yield %>
   </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
   </body>
 </html>

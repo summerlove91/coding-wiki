@@ -1,9 +1,9 @@
 class User < ApplicationRecord
-  has_many :wikis
+  has_many :wikis, dependent: :destroy
+  has_many :comments
+  # has_many :collaborators
 
   before_save { self.email = email.downcase if email.present? }
-  # before_save { self.role ||= :standard }
-  # before_action :authenticate_user!
 
   validates :name, length: { minimum: 1, maximum: 100 }, presence: true
   validates :password, presence: true, length: { minimum: 6 }, if: "password_digest.nil?"
@@ -14,10 +14,18 @@ class User < ApplicationRecord
             length: { minimum: 3, maximum: 254 }
 
   has_secure_password
-  
-  def going_public
-    self.wikis.each { |wiki| puts wiki.publicize }
+
+  def self.going_public(user)
+    @wikis = user.wikis.where(private: true)
+    @wikis.each do |wiki|
+      wiki.update_attribute(:private, false)
+    end
   end
 
+  private
+
+  def initialize_role
+    self.role ||= :standard
+  end
   # enum role [:standard, :admin, :premium]
 end

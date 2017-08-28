@@ -8,6 +8,54 @@
 
 require 'random_data'
 
+# 5.times do
+#     user= User.create!(
+#         name: "Standard User",
+#         email: "email@email.com",
+#         password: "password",
+#         standard: true,
+#         premium: false,
+#         admin: false
+#         )
+# end
+#
+# premium_user = User.create!(
+#     name: "Premium User",
+#     email: "gkdus4030@gmail.com",
+#     password: "password",
+#     standard: false,
+#     premium: true,
+#     admin: false
+#     )
+#
+#
+# admin_user = User.create!(
+#     name: "Admin User",
+#     email: "gkdus4030@naver.com",
+#     password: "password",
+#     standard: false,
+#     premium: false,
+#     admin: true
+#     )
+#
+#
+# users = User.all
+#
+# # 10.times do
+# #     Wiki.create!(
+# #         title: RandomData.random_sentence,
+# #         body: RandomData.random_paragraph,
+# #         private: false,
+# #         user: User.last
+# #         )
+# # end
+#
+# wikis = Wiki.all
+#
+# puts "Seed finished"
+# puts "#{users.count} users created"
+# puts "#{wikis.count} wikis created"
+
 3.times do
     User.create!(
         name: "Standard User",
@@ -43,16 +91,25 @@ end
 
 users = User.all
 
-# 2.times do
-#     Wiki.create!(
-#         title: RandomData.random_sentence,
-#         body: RandomData.random_paragraph,
-#         # private: false
-#         )
-# end
+12.times do
+    Wiki.create!(
+        user: users.sample,
+        title: RandomData.random_sentence,
+        body: RandomData.random_paragraph,
+        # private: false
+        )
+end
 
-# wikis = Wiki.all
+wikis = Wiki.all
+
+20.times do
+   Comment.create!(
+     user: users.sample,
+     wiki: wikis.sample,
+     body: RandomData.random_paragraph
+   )
+end
 
 puts "Seed finished"
 puts "#{users.count} users created"
-# puts "#{wikis.count} wikis created"
+puts "#{wikis.count} wikis created"

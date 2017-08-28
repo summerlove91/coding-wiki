@@ -3,5 +3,23 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 h1 {
-   color: blue;
+   color: navy;
+   font-family: 'Baloo Bhaijaan';
  }
+
+.main-box {
+  background-color: skyblue;
+  text-align: center;
+  height: 600px;
+  color: navy;
+  font-family: 'Nunito';
+}
+
+.main-background {
+  background: url("/images/main-background.png") center;
+  text-align: center;
+}
+
+.main-box-1, .main-box-2, .main-box-3 {
+margin-top: 50px;
+}

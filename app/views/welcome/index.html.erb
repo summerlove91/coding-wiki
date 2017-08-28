@@ -1,24 +1,34 @@
 <br>
+<div class="main-background">
 <div class="jumbotron">
-  <h1>Coding Wiki</h1>
-  <p>Coding Wiki is a resource for sharing your coding knowledge your friends!</p>
+  <h1> Code Overflow </h1>
+  <p>Learn, Share, Build <br>
+    Code Overflow is a resource for sharing your coding knowledge your developers around the world!</p>
   <p>
+    <% if current_user %>
+    <%= link_to "Checkout Today's Wikis!", wikis_path, class: 'btn btn-primary' %>
+    <% else %>
     <%= link_to "Sign In", new_session_path %> or
     <%= link_to "Sign Up", new_user_path, class: 'btn btn-primary' %> today!
   </p>
-</div>
+    <% end %>
+</div></div>
 
+<div class = "main-box">
 <div class="row">
-  <div class="col-md-4">
-    <h2>Solves world hunger</h2>
-    <p>Bloccit will deliver food and water to those in need, all over the world.</p>
+  <div class="col-md-12">
+    <div class = "main-box-1">
+    <h2>Learn and Develop your coding knowledge!</h2>
+    <p>Developers from all over the world come to us to solve their biggest coding challenges. Every. Single. Day</p>
+    </div>
+    <div class = "main-box-2">
+    <h2>Insights from the most trusted Developers </h2>
+    <p>Harness the wealth of Code Overflow. Insights to make better business decisions</p>
+    </div>
+    <div class ="main-box-3">
+    <h2>Build your Network</h2>
+    <p>Connect with the best developer networks around the world!</p>
+    </div>
   </div>
-  <div class="col-md-4">
-    <h2>Eliminates poverty</h2>
-    <p>Bloccit will deliver money and education to those in need, all over the world.</p>
-  </div>
-  <div class="col-md-4">
-    <h2>Makes you better looking</h2>
-    <p>Bloccit will make you better looking: it's scientifically proven to make men look like Ryan Gosling and women look like Shakira.</p>
-  </div>
+</div>
 </div>
