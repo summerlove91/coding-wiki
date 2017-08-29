@@ -16,10 +16,14 @@ h1 {
 }
 
 .main-background {
-  background: url("/images/main-background.png") center;
+  background-image: url('/assets/main-background.png');
   text-align: center;
 }
 
 .main-box-1, .main-box-2, .main-box-3 {
 margin-top: 50px;
+}
+
+.main-box-text {
+  font-weight: 100;
 }

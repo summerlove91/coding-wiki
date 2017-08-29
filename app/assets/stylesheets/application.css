@@ -17,25 +17,21 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
- .nav-links {
+ .user-info {
    font-size: 18px;
    font-family: 'Nunito';
-   border-right: 10px;
+   right: 10px;
+   position: absolute;
+   top: 15px;
+   font-weight: bold;
  }
 
-.nav-tabs {
-  /*background-color: skyblue;*/
-
-  position: relative;
-  /*margin-right: 10px;*/
-}
 
 .logo {
   margin-top: 9px;
   font-family: 'Baloo Bhaijaan';
   font-size: 30px;
   color: white;
-  /*left: 20px;*/
   text-shadow: 0.5px 0.5px grey;
 }
 

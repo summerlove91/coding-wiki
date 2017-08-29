@@ -2,7 +2,8 @@
 <html>
   <head>
     <title>Code Overflow</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 , shrink-to-fit=no" >
     <%= csrf_meta_tags %>
     <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaijaan|Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
@@ -14,9 +15,7 @@
     <div class="container">
       <div class="col-md-12 navigation-tabs">
       <ul class="nav nav-tabs">
-        <div class = "logo">
-          <%= link_to "Code Overflow", wikis_path %></div>
-        <div class="nav-links">
+          <%= link_to "Code Overflow", wikis_path, :class => "logo" %>
         <div class="pull-right user-info">
           <% if current_user && standard_user? %>
            Hello, <%= current_user.name %> - <%= link_to "Sign Out", session_path(current_user), method: :delete %> or
@@ -30,7 +29,7 @@
            <%= link_to "Sign In", new_session_path %> or
            <%= link_to "Sign Up", new_user_path %>
          <% end %>
-       </div></div></div>
+       </div></div>
 
       <div class="pull-right user-info">
       <% if flash[:notice] %>
