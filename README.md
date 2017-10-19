@@ -21,9 +21,10 @@ This app was created as Backend project of the [Bloc](www.bloc.io) Full Stack We
 
 ## Setup and Configuration ##
 **Languages and Frameworks**: Ruby on Rails and Bootstrap
+
 **Ruby version 2.4.0**
-**Database: SQLite (Test, Development), PostgreSQL (Production)
-** Development Tools and Gems include **
+**Database: SQLite (Test, Development), PostgreSQL (Production)**
+**Development Tools and Gems include**
 + Devise for authentication
 + Pundit gem for authorization
 + Faker gem
