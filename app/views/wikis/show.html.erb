@@ -1,18 +1,16 @@
-<h1><%= @wiki.title %></h1>
-
+<h1 class="wiki-title"><%= @wiki.title %></h1>
 <div class="row">
     <div class="col-md-8">
         <p><%= markdown(@wiki.body) %></p>
-        <p>Created by <%= @wiki.user.email %></p>
-
-        <p>Collaborators:
+        <p >Created by <%= @wiki.user.email %></p>
+        <p class="create-line">Collaborators:
             <% unless @wiki.collaborators.empty? %>
                 <% @wiki.collaborators.each do |collaborator| %>
                     <p><%= collaborator.email %></p>
                 <% end %>
             <% end %></p>
         <div>
-          <h3>Comments</h3>
+          <h3 class="comment">Comments</h3>
           <%= render @wiki.comments %>
         </div>
         <% if current_user %>

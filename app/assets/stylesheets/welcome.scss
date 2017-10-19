@@ -2,8 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-h1 {
-   color: navy;
+.main-title {
+   color: white;
+   text-shadow: 2px 2px black;
+   font-size: 50px;
    font-family: 'Baloo Bhaijaan';
  }
 
@@ -11,19 +13,30 @@ h1 {
   background-color: skyblue;
   text-align: center;
   height: 600px;
-  color: navy;
-  font-family: 'Nunito';
+  color: black;
+  font-family: 'Roboto';
 }
 
-.main-background {
-  background-image: url('/assets/main-background.png');
+.jumbotron {
+  background-image: asset-url('main-background.png');
   text-align: center;
+  font-weight: bold;
+  font-size: 29px;
+  text-shadow: 1px 1px #000000;
+  color: white;
 }
 
 .main-box-1, .main-box-2, .main-box-3 {
-margin-top: 50px;
+  margin-top: 70px;
 }
 
 .main-box-text {
   font-weight: 100;
+  font-size: 40px;
+
+}
+
+.main-box-text-desc {
+  font-size: 25px;
+
 }

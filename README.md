@@ -1,24 +1,38 @@
-# README
+![alt text](app/assets/images/screenshot.png)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##Code Overflow
+Replica version of Stack Overflow that allows users to collaborate on community sourced posts
 
-Things you may want to cover:
+The app is deployed on Heroku: https://infinite-depths-14461.herokuapp.com/
 
-* Ruby version
+The source code is here on GitHub: https://github.com/summerlove91/coding-wiki
 
-* System dependencies
+This app was created as Backend project of the [Bloc](www.bloc.io) Full Stack Web Development course.
 
-* Configuration
+## User Stories
+- As a user, I want to sign up for a free account by providing a user name, password and email
+- As a user, I want to sign in and out of Blocipedia
+- As a user with a standard account, I want to create, read, update, and delete public wikis	
+- As a developer, I want to offer three user roles: admin, standard, or premium
+- As a developer, I want to seed the development database automatically with users and wikis
+- As a user, I want to upgrade my account from a free to a paid plan
+- As a premium user, I want to create private wikis
+- As a user, I want to edit wikis using Markdown syntax
+- As a premium user, I want to add and remove collaborators for my private wikis
 
-* Database creation
+**Languages and Frameworks**: Ruby on Rails and Bootstrap
 
-* Database initialization
+**Ruby version 2.4.0**
 
-* How to run the test suite
+**Development Tools and Gems include**:
++ Devise for authentication
++ Stripe for payment
++ Redcarpet for Markdown rendering
 
-* Services (job queues, cache servers, search engines, etc.)
+**To run Code Overflow locally:**
 
-* Deployment instructions
-
-* ...
++ Clone the repository
++ Run bundle install
++ Create and migrate the SQLite database with `rake db:create` and `rake db:migrate`
++ Start the server using `rails server`
++ Run the app on `localhost:3000
