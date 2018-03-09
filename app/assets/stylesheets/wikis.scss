@@ -5,7 +5,11 @@
 .make-wiki-button {
   position: absolute;
   right: 0;
-  top: 60px;
+  top: 97px;
+}
+.wiki-box{
+  margin-top: 100px;
+  margin-left: 40px;
 }
 
 .wiki-title{
@@ -14,6 +18,21 @@
   font-size: 33px;
   font-family: 'Roboto';
   font-weight: bold;
+}
+
+.wiki-show-box{
+  margin-top: 100px;
+  margin-left: 40px;
+}
+
+.wiki-edit-box{
+  margin-top: 100px;
+  margin-left: 40px;
+}
+
+.wiki-new{
+  margin-top: 100px;
+  margin-left: 40px;
 }
 
 .comment {

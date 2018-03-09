@@ -19,9 +19,10 @@ class WikisController < ApplicationController
       end
     else
       flash[:alert] = "You are not authorized to view this wiki."
-      redirect_to new_user_registration_path
+      redirect_to new_session_path
     end
   end
+
 
   def new
     @wiki = Wiki.new

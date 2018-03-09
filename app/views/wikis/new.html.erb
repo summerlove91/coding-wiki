@@ -1,26 +1,27 @@
 <% if user_is_authorized_to_create? %>
-    <h1>New Wiki</h1>
+  <div class="wiki-new">
+    <h1>New Question</h1>
     <div class="row">
         <div class="col-md-4">
-            <p>Wiki rules</p>
+            <p>Code Overflow rules</p>
             <ul>
                 <li>Don't be a jerk.</li>
-                <li>Make a wiki anyone can edit!</li>
+                <li>Ask question anyone can answer!</li>
             </ul>
         </div>
         <div class="col-md-8">
             <%= form_for @wiki do |f| %>
                 <div class="form-group">
                     <%= f.label :title %>
-                    <%= f.text_field :title, class: 'form-control', placeholder: "Enter wiki title" %>
+                    <%= f.text_field :title, class: 'form-control', placeholder: "Enter title" %>
                 </div>
                 <div class="form-group">
                     <%= f.label :body %>
-                    <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter wiki body" %>
+                    <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter body" %>
                 </div>
                 <div class="form-group">
                     <%= f.label :private, class: 'checkbox' do %>
-                        <%= f.check_box :private %> Private wiki
+                        <%= f.check_box :private %> Private question
                     <% end %>
                 </div>
                 <div class="form-group">
@@ -33,4 +34,5 @@
             <% end %>
         </div>
     </div>
+  </div>
 <% end %>

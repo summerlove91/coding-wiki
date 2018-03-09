@@ -26,12 +26,14 @@ group :production do
  gem 'stripe'
  gem 'figaro'
  gem 'redcarpet'
+ gem 'webpacker'
+ # gem 'yarn'
 
  group :development, :test do
    gem 'rspec-rails' , '~> 3.6'
    gem 'rails-controller-testing'
    gem 'shoulda'
-   gem 'factory_girl_rails', '~> 4.0'
+   gem 'factory_bot_rails'
  end
 
  group :development do
