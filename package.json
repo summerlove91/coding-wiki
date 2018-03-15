@@ -2,7 +2,8 @@
   "name": "codingwiki",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "^3.2.2"
+    "@rails/webpacker": "^3.2.2",
+    "babel-loader": "^7.1.4"
   },
   "devDependencies": {
     "webpack": "^3.8.1",

@@ -1,22 +1,22 @@
-![alt text](app/assets/images/screenshot.png)
+![alt text](app/assets/images/codeoverflow-1.png)
 
 ## Code Overflow
 Replica version of Stack Overflow that allows users to collaborate on community sourced posts
 
-The app is deployed on Heroku: https://infinite-depths-14461.herokuapp.com/
+The app is deployed on Heroku: https://blooming-anchorage-55099.herokuapp.com/
 The source code is here on GitHub: https://github.com/summerlove91/coding-wiki
 This app was created as Backend project of the [Bloc](www.bloc.io) Full Stack Web Development course.
 
 ## User Stories
 - As a user, I want to sign up for a free account by providing a user name, password and email
-- As a user, I want to sign in and out of Blocipedia
-- As a user with a standard account, I want to create, read, update, and delete public wikis
+- As a user, I want to sign in and out of Code Overflow
+- As a user with a standard account, I want to create, read, update, and delete public questions
 - As a developer, I want to offer three user roles: admin, standard, or premium
-- As a developer, I want to seed the development database automatically with users and wikis
+- As a developer, I want to seed the development database automatically with users and questions
 - As a user, I want to upgrade my account from a free to a paid plan
-- As a premium user, I want to create private wikis
-- As a user, I want to edit wikis using Markdown syntax
-- As a premium user, I want to add and remove collaborators for my private wikis
+- As a premium user, I want to create private questions
+- As a user, I want to edit questions using Markdown syntax
+- As a premium user, I want to add and remove collaborators for my private questions
 
 
 ## Setup and Configuration ##

@@ -7,10 +7,10 @@
       Code Overflow is a resource for sharing your coding knowledge your developers around the world!</p>
     <p>
       <% if current_user %>
-      <%= link_to "Checkout Today's Questions!", wikis_path, class: 'btn btn-primary' %>
+        <%= link_to "Checkout Today's Questions!", wikis_path, class: 'btn btn-primary' %>
       <% else %>
-      <%= link_to "Log In", new_session_path %> or
-      <%= link_to "Sign Up", new_user_path, class: 'btn btn-primary' %> today!
+        <%= link_to "Log In", new_session_path %> or
+        <%= link_to "Sign Up", new_user_path, class: 'btn btn-primary' %> today!
       <% end %>
     </p>
   </div>
@@ -29,7 +29,7 @@
           <p class="main-box-text-desc">Harness the wealth of Code Overflow. Insights to make better business decisions</p>
       </div>
       <div class ="col-md-3 main-box-3">
-
+          <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
         <h2 class ="main-box-text">Build your Network</h2>
           <p class="main-box-text-desc">Connect with the best developer networks around the world!</p>
       </div>
