@@ -2,67 +2,59 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.main-title {
-   color: black;
-   text-shadow: 2px 2px black;
-   font-size: 50px;
-   font-family: 'Abril Fatface';
-   display: inline-block;
- }
+.main-background-2 {
+  background-image: asset-url('background.png');
+  text-align: center;
+  color: white;
+  position: absolute;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 100%;
+  height:600px;
+  top: -10px;
+}
 
- .main-title-2 {
-    color: white;
-    text-shadow: 2px 2px black;
-    font-size: 50px;
-    font-family: 'Abril Fatface';
-    display: inline-block;
-  }
-
-.main-box {
+.main-box{
+  width: 100%;
+  left: 10%;
+  top: 610px;
+  position: absolute;
   background-color: white;
   text-align: center;
   height: 600px;
   color: black;
   font-family: 'Roboto';
   position: absolute;
-  top: 500px;
   width: 100%;
 }
 
-.glyphicon {
-  font-size: 30px;
-  padding-top: 18px;
+.main-text{
+  padding-top: 11vw;
+  background-color: white;
+  padding-bottom: 11vw;
 }
 
-.main-background-2 {
-  background-image: asset-url('background.png');
-  text-align: center;
+.main-text-1 {
+  font-size: 3.2vw;
   font-weight: bold;
-  font-size: 35px;
-  // text-shadow: 1px 1px #000000;
-  color: white;
-  position: absolute;
-  background-size: 100%;
-  background-repeat: no-repeat;
-  top: 60px;
-  width: 100%;
-  height:600px;
 }
 
-.main-box{
-  width: 100%;
-  // margin:auto;
-  left: 10%;
-  top: 670px;
-  position: absolute;
+.main-text-2{
+  font-size: 2vw;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.main-login-box{
+  padding-top: 30px;
+  font-size: 2.3vw;
 }
 
 .main-box-1, .main-box-2, .main-box-3 {
-  margin-top: 70px;
+  margin-top: 25px;
   background-color: rgba(154, 90, 90, 0.15);
   border-radius: 15px;
   width: 80%;
-  // margin-left: 30px;
   margin-right: 20px;
 }
 
@@ -77,5 +69,23 @@
 
 .main-box-text-desc {
   font-size: 1.8vw;
+}
 
+.main-title {
+   color: black;
+   font-size: 5vw;
+   font-family: 'Abril Fatface';
+   display: inline-block;
+ }
+
+ .main-title-2 {
+    color: white;
+    font-size: 5vw;
+    font-family: 'Abril Fatface';
+    display: inline-block;
+  }
+
+.glyphicon {
+  font-size: 30px;
+  padding-top: 18px;
 }

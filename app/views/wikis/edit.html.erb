@@ -1,6 +1,6 @@
 <% if user_is_authorized_to_update? %>
 <div class="wiki-edit-box">
-  <h1>Edit Question</h1>
+  <h1 class="edit-title">Edit Question</h1>
 
    <div class="row">
      <div class="col-md-4">
@@ -22,7 +22,7 @@
            <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter body" %>
          </div>
          <% if user_is_authorized_to_create? %>
-            <div class="form-group">
+            <div class="form-group check-private-box">
               <%= f.label :private, class: 'checkbox' do %>
                 <%= f.check_box :private %> Private question
               <% end %>

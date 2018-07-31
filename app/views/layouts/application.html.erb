@@ -15,13 +15,13 @@
     <div class="container">
       <div class="col-md-12 navigation-tabs navbar-fixed-top">
         <ul class="nav nav-tabs">
-          <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
-          <%= link_to "code ", wikis_path, :class => "logo" %>
-          <%= link_to " overflow", wikis_path, :class => "logo-2" %>
+          <!-- <span class="glyphicon glyphicon-fire" aria-hidden="true"></span> -->
+          <%= link_to "code", wikis_path, :class => "logo" %>
+          <%= link_to "overflow", wikis_path, :class => "logo-2" %>
             <div class="pull-right user-info">
               <% if current_user && standard_user? %>
                Hello, <%= current_user.name %> - <%= link_to "Sign Out", session_path(current_user), method: :delete %> or
-               <%= link_to "Upgrade to Premium!", new_charge_path %>
+               <%= link_to "Upgrade to Premium!", new_charge_path, class: 'btn btn-primary' %>
               <% elsif current_user && premium_user? %>
                 Hello, <%= current_user.name %> - <%= link_to "Sign Out", session_path(current_user), method: :delete %> or
                 <%= link_to "Downgrade to Standard", new_downgrade_path %>
@@ -33,7 +33,6 @@
              <% end %>
            </div>
        </div>
-
         <div class="pull-right user-info">
           <% if flash[:notice] %>
              <div class="alert alert-success">
