@@ -27,6 +27,7 @@ group :production do
  gem 'figaro'
  gem 'redcarpet'
  gem 'webpacker'
+ gem 'thin'
  # gem 'yarn'
 
  group :development, :test do
