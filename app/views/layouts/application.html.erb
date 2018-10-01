@@ -29,7 +29,7 @@
                 Hello, <%= current_user.name %> - <%= link_to "Sign Out", session_path(current_user), method: :delete %>
              <% else %>
                <%= link_to "Log In", new_session_path , class: 'log-in'%>
-               <%= link_to "Sign Up", new_user_path, class: 'btn btn-primary' %>
+               <%= link_to "Sign Up", new_user_path, class: 'btn btn-primary sign-in-button' %>
              <% end %>
            </div>
        </div>

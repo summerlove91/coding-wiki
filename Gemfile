@@ -35,8 +35,9 @@ group :production do
    gem 'shoulda'
    gem 'factory_bot_rails'
    gem 'cucumber-rails', :require => false
+  #  gem 'selenium-cucumber'
    gem 'database_cleaner'
-   gem 'capybara'
+  #  gem 'capybara'
    gem 'selenium-webdriver'
  end
 
@@ -45,3 +46,5 @@ group :production do
    gem 'listen'
    gem 'pry-rails'
  end
+
+ ruby '2.4.0'

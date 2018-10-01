@@ -19,14 +19,15 @@ require 'random_data'
 #         )
 # end
 #
-# premium_user = User.create!(
-#     name: "Premium User",
-#     email: "gkdus4030@gmail.com",
-#     password: "password",
-#     standard: false,
-#     premium: true,
-#     admin: false
-#     )
+premium_user = User.create!(
+    name: "Premium User",
+    email: "gkdus4030@gmail.com",
+    password: "password",
+    standard: false,
+    premium: true,
+    admin: false
+    )
+end
 #
 #
 # admin_user = User.create!(
@@ -39,7 +40,8 @@ require 'random_data'
 #     )
 #
 #
-# users = User.all
+users = User.all
+console.log(users)
 #
 # # 10.times do
 # #     Wiki.create!(
@@ -91,25 +93,26 @@ end
 
 users = User.all
 
-12.times do
-    Wiki.create!(
-        user: users.sample,
-        title: RandomData.random_sentence,
-        body: RandomData.random_paragraph,
-        # private: false
-        )
-end
+# 12.times do
+#     Wiki.create!(
+#         user: users.sample,
+#         title: RandomData.random_sentence,
+#         body: RandomData.random_paragraph,
+#         # private: false
+#         )
+# end
+#
+# wikis = Wiki.all
+#
+# 20.times do
+#    Comment.create!(
+#      user: users.sample,
+#      wiki: wikis.sample,
+#      body: RandomData.random_paragraph
+#    )
+# end
 
-wikis = Wiki.all
-
-20.times do
-   Comment.create!(
-     user: users.sample,
-     wiki: wikis.sample,
-     body: RandomData.random_paragraph
-   )
-end
-
+puts users
 puts "Seed finished"
 puts "#{users.count} users created"
 puts "#{wikis.count} wikis created"
