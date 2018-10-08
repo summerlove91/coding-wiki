@@ -1,7 +1,6 @@
 Feature: Testing for signup page
 
 Scenario: Standard User Signup with no user name
-
   Given I want to use the browser Firefox
   When I set the user name empty
   When I set the user email 'test@test.com'
@@ -11,7 +10,6 @@ Scenario: Standard User Signup with no user name
   And I am on the login page
 
 Scenario: Standard User Signup with bad email
-
   Given I want to use the browser Firefox
   When I set the user name to Test User
   When I set the user email to dd
@@ -21,7 +19,6 @@ Scenario: Standard User Signup with bad email
   And I am on the login page
 
 Scenario: Standard User Signup with bad password
-
   Given I want to use the browser Firefox
   When I set the user name to Test User
   When I set the user email to test@test.com
@@ -31,7 +28,6 @@ Scenario: Standard User Signup with bad password
   And I am on the login page
 
 Scenario: Standard User Signup with valid user email and password
-
   Given I want to use the browser Firefox
   When I set the user name to Test User
   When I set the user email to test@test.com

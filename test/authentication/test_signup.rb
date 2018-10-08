@@ -5,6 +5,7 @@ driver = Selenium::WebDriver.for :firefox
 #Loading the assertselenium URL
 driver.navigate.to "http://localhost:3000"
 
+##SIGNUP WITH BAD USERNAME ######################
 #find sign in button and click to navigate to sign in page.
 signinButton = driver.find_element(:class, "sign-in-button")
 signinButton.click
@@ -38,7 +39,7 @@ wait = Selenium::WebDriver::Wait.new(:timeout => 2) # seconds
 wait.until {driver.find_element(:tag_name, "alert") }
 
 
-
+##SIGNUP WITH BAD EMAIL ######################
 #define user name field element.
 signupName = driver.find_element(:class, "sign-up-name-input")
 signupName.send_keys('Test User')
@@ -63,8 +64,7 @@ signupSubmitButton.click
 wait = Selenium::WebDriver::Wait.new(:timeout => 2) # seconds
 wait.until {driver.find_element(:tag_name, "alert") }
 
-
-
+##SIGNUP WITH BAD PASSWORD ######################
 #define user name field element.
 signupName = driver.find_element(:class, "sign-up-name-input")
 signupName.send_keys('Test User')
@@ -89,8 +89,7 @@ signupSubmitButton.click
 wait = Selenium::WebDriver::Wait.new(:timeout => 2) # seconds
 wait.until {driver.find_element(:tag_name, "alert") }
 
-
-
+##SUCCESSFUL SIGNUP ######################
 #define user name field element.
 signupName = driver.find_element(:class, "sign-up-name-input")
 signupName.send_keys('Test User')

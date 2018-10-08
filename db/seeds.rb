@@ -8,55 +8,34 @@
 
 require 'random_data'
 
-# 5.times do
-#     user= User.create!(
-#         name: "Standard User",
-#         email: "email@email.com",
-#         password: "password",
-#         standard: true,
-#         premium: false,
-#         admin: false
-#         )
-# end
-#
+standard_user = User.create!(
+    name: "Standard User",
+    email: "standard@standard.com",
+    password: "password",
+    standard: true,
+    premium: false,
+    admin: false
+    );
+
 premium_user = User.create!(
     name: "Premium User",
-    email: "gkdus4030@gmail.com",
+    email: "premium@premium.com",
     password: "password",
     standard: false,
     premium: true,
     admin: false
-    )
-end
-#
-#
-# admin_user = User.create!(
-#     name: "Admin User",
-#     email: "gkdus4030@naver.com",
-#     password: "password",
-#     standard: false,
-#     premium: false,
-#     admin: true
-#     )
-#
-#
+    );
+
+admin_user = User.create!(
+    name: "Admin User",
+    email: "admin@admin.com",
+    password: "password",
+    standard: false,
+    premium: false,
+    admin: true
+    );
+
 users = User.all
-console.log(users)
-#
-# # 10.times do
-# #     Wiki.create!(
-# #         title: RandomData.random_sentence,
-# #         body: RandomData.random_paragraph,
-# #         private: false,
-# #         user: User.last
-# #         )
-# # end
-#
-# wikis = Wiki.all
-#
-# puts "Seed finished"
-# puts "#{users.count} users created"
-# puts "#{wikis.count} wikis created"
 
 3.times do
     User.create!(
@@ -93,26 +72,29 @@ end
 
 users = User.all
 
-# 12.times do
-#     Wiki.create!(
-#         user: users.sample,
-#         title: RandomData.random_sentence,
-#         body: RandomData.random_paragraph,
-#         # private: false
-#         )
-# end
-#
-# wikis = Wiki.all
-#
-# 20.times do
-#    Comment.create!(
-#      user: users.sample,
-#      wiki: wikis.sample,
-#      body: RandomData.random_paragraph
-#    )
-# end
+12.times do
+    Wiki.create!(
+        user: users.sample,
+        title: RandomData.random_sentence,
+        body: RandomData.random_paragraph,
+        # private: false
+        )
+end
+
+wikis = Wiki.all
+
+20.times do
+   Comment.create!(
+     user: users.sample,
+     wiki: wikis.sample,
+     body: RandomData.random_paragraph
+   )
+end
+
+comments = Comment.all
 
 puts users
 puts "Seed finished"
 puts "#{users.count} users created"
 puts "#{wikis.count} wikis created"
+puts "#{comments.count} comments created"
