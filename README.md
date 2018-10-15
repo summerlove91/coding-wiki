@@ -1,4 +1,8 @@
-![alt text](app/assets/images/codeoverflow-1.png)
+![alt text](app/assets/images/codeoverflow-5.png)
+![alt text](app/assets/images/codeoverflow-6.png)
+![alt text](app/assets/images/codeoverflow-7.png)
+![alt text](app/assets/images/codeoverflow-8.png)
+![alt text](app/assets/images/codeoverflow-61.png)
 
 ## Code Overflow
 Replica version of Stack Overflow that allows users to collaborate on community sourced posts
