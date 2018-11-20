@@ -3,11 +3,11 @@ class LoginPage
 
   def initialize(browser)
     @browser = browser
-    @loginTab    = @browser.a(:text =&gt; "Log In")
-    @logoutTab    = @browser.a(:text =&gt; "Sign Out")
+    @loginTab = @browser.a(:text =&gt; "Log In")
+    @logoutTab = @browser.a(:text =&gt; "Sign Out")
     @txtUsername = @browser.text_field(:class =&gt; "email-field")
     @txtPassword = @browser.text_field(:class =&gt; "password-field")
-    @btnLogin      = @browser.element(:class =&gt; "input-submit-button")
+    @btnLogin = @browser.element(:class, "input-submit-button")
   end
 
   def visit
@@ -31,7 +31,7 @@ class LoginPage
   end
 
   def verifyHomePageHeader()
-    @browser.element(:text =&gt; "Log Out").wait_until_present
+    @browser.element(:text; "Log Out").wait_until_present
   end
 
   def verifyErrorMessage()
@@ -39,6 +39,6 @@ class LoginPage
   end
 
   def verifyLogInPage()
-    @browser.element(:text =&gt; "Sign In").wait_until_present
+    @browser.element(:text; "Sign In").wait_until_present
   end
 end

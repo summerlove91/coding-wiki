@@ -36,10 +36,9 @@ group :production do
    gem 'shoulda'
    gem 'factory_bot_rails'
    gem 'cucumber-rails', :require => false
-  #  gem 'selenium-cucumber'
    gem 'database_cleaner'
-  #  gem 'capybara'
    gem 'selenium-webdriver'
+   gem 'watir'
  end
 
  group :development do
