@@ -1,11 +1,10 @@
 require 'selenium-webdriver'
 require 'watir'
 
+driver = Selenium::WebDriver.for :firefox
 
   Given (/^I want to use the browser Firefox$/) do
-    driver = Selenium::WebDriver.for :firefox
-    #Loading the assertselenium URL
-    driver.navigate.to "http://localhost:3000"
+    driver.get "http://localhost:3000"
   end
 
   And(/^I click on Login button$/) do
