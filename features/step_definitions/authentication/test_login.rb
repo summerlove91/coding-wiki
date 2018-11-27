@@ -3,72 +3,64 @@ require 'watir'
 
 driver = Selenium::WebDriver.for :firefox
 
-  Given (/^I want to use the browser Firefox$/) do
-    driver.get "http://localhost:3000"
+  Given ("I navigate to homepage using Firefox browser") do
+    wait = Selenium::WebDriver::Wait.new(:timeout => 2)
+    wait.until{driver.get 'http://localhost:3000'}
   end
 
-  And(/^I click on Login button$/) do
-    loginButton = driver.find_element(:class, "log-in")
+  And("I click on Login button and wait for the log in page to display") do
+    loginButton = driver.find_elements(:class, 'log-in')
     loginButton.click
+    wait = Selenium::WebDriver::Wait.new(:timeout => 2) # seconds
+    wait.until {driver.find_elements(:class => 'log-in-box') }
   end
 
-  And(/^I wait for the log in page to display$/) do
-    wait = Selenium::WebDriver::Wait.new(:timeout => 5) # seconds
-    wait.until {driver.find_element(:class => "log-in-box") }
-  end
-
-  When(/^I set the user email to "([^"]*)"$/) do
-    loginEmail = driver.find_element(:class, "log-in-email-input")
+  When("I set the user email to {string}") do
+    loginEmail = driver.find_elements(:class, 'log-in-email-input')
     loginEmail.send_keys('wrong@standard.com')
   end
 
-  When(/^When I set the user password to "([^"]*)"$/) do
-    loginPassword = driver.find_element(:class, "log-in-password-input")
-    loginPassword.send_keys('password')
+  When("When I set the user password to {string}") do
+    loginPassword = driver.find_elements(:class, 'log-in-password-input')
+    loginPassword.send_keys("password")
   end
 
-  When(/^I login to Code Overflow$/) do
-    loginSubmitButton = driver.find_element(:link_text, "Sign in")
+  When("I login to Code Overflow") do
+    loginSubmitButton = driver.find_element(:link_text, 'Sign in')
     loginSubmitButton.click
   end
 
-  Then(/^I see the error message "([^"]*)"$/) do |string|
+  Then("I see the error message {string}") do |string|
     wait = Selenium::WebDriver::Wait.new(:timeout => 2) # seconds
-    wait.until {driver.find_element(:tag_name, "alert") }
+    wait.until {driver.find_element(:tag_name, 'alert') }
   end
-
-  And(/^I am on the login page$/) do
-    wait = Selenium::WebDriver::Wait.new(:timeout => 5) # seconds
-    wait.until {driver.find_element(:class => "log-in-box") }
-  end
-
 
 ##STANDARD USER WITH NO PASSWORD ######################
 
 
   Given (/^I am already on log in page$/) do
     wait = Selenium::WebDriver::Wait.new(:timeout => 5) # seconds
-    wait.until {driver.find_element(:class => "log-in-box") }
+    wait.until {driver.find_elements(:class => 'log-in-box') }
   end
 
-  When(/^I set the user email to "([^"]*)"$/) do
-    loginEmail = driver.find_element(:class, "log-in-email-input")
-    loginEmail.send_keys('standard@standard.com')
+  When(/^I set the user email to '([^']*)'$/) do
+    loginEmail = driver.find_elements(:class, 'log-in-email-input')
+    loginEmail.send_keys("standard@standard.com")
   end
 
   And(/^I set the user password to empty$/) do
-    loginPassword = driver.find_element(:class, "log-in-password-input")
+    loginPassword = driver.find_elements(:class, 'log-in-password-input')
     loginPassword.send_keys(' ')
   end
 
   And(/^I login to Code Overflow$/) do
-    loginSubmitButton = driver.find_element(:link_text, "Sign in")
+    loginSubmitButton = driver.find_element(:link_text, 'Sign in')
     loginSubmitButton.click
   end
 
-  Then(/^I see the error message "([^"]*)"&/) do |string|
+  Then(/^I see the error message '([^']*)'&/) do |string|
     wait = Selenium::WebDriver::Wait.new(:timeout => 2) # seconds
-    wait.until {driver.find_element(:tag_name, "alert") }
+    wait.until {driver.find_element(:tag_name, 'alert') }
   end
 
 ## STANDARD USER WITH BAD PASSWORD #########################
@@ -76,59 +68,58 @@ driver = Selenium::WebDriver.for :firefox
 
   Given (/^I am already on log in page$/) do
     wait = Selenium::WebDriver::Wait.new(:timeout => 5) # seconds
-    wait.until {driver.find_element(:class => "log-in-box") }
+    wait.until {driver.find_elements(:class => 'log-in-box') }
   end
 
-  When(/^I set the user email to "([^"]*)"$/) do
-    loginEmail = driver.find_element(:class, "log-in-email-input")
-    loginEmail.send_keys('standard@standard.com')
+  When(/^I set the user email to '([^']*)'$/) do
+    loginEmail = driver.find_elements(:class, 'log-in-email-input')
+    loginEmail.send_keys("standard@standard.com")
   end
 
-  And(/^I set the user password to "([^"]*)"$/ ) do
-    loginPassword = driver.find_element(:class, "log-in-password-input")
-    loginPassword.send_keys('wrongpassword')
+  And(/^I set the user password to '([^']*)'$/ ) do
+    loginPassword = driver.find_elements(:class, 'log-in-password-input')
+    loginPassword.send_keys("wrongpassword")
   end
 
   And(/^I login to Code Overflow$/) do
-    loginSubmitButton = driver.find_element(:link_text, "Sign in")
+    loginSubmitButton = driver.find_element(:link_text, 'Sign in')
     loginSubmitButton.click
   end
 
-  Then(/^I see the error message "([^"]*)"$/) do |string|
+  Then(/^I see the error message '([^']*)'$/) do |string|
     wait = Selenium::WebDriver::Wait.new(:timeout => 2) # seconds
-    wait.until {driver.find_element(:tag_name, "alert") }
+    wait.until {driver.find_element(:tag_name, 'alert') }
   end
 
 ## STANDARD USER SUCCESSFUL LOGIN ############################
 
   Given (/^I am already on log in page$/) do
     wait = Selenium::WebDriver::Wait.new(:timeout => 5) # seconds
-    wait.until {driver.find_element(:class => "log-in-box") }
+    wait.until {driver.find_elements(:class => 'log-in-box') }
   end
 
-  When(/^I set the user email to "([^"]*)"$/) do
-    loginEmail = driver.find_element(:class, "log-in-email-input")
-    loginEmail.send_keys('standard@standard.com')
+  When(/^I set the user email to {string}$/) do
+    loginEmail = driver.find_elements(:class, 'log-in-email-input')
+    loginEmail.send_keys("standard@standard.com")
   end
 
-  And(/^I set the user password to "([^"]*)"$/) do
-    loginPassword = driver.find_element(:class, "log-in-password-input")
-    loginPassword.send_keys('password')
+  And(/^I set the user password to {string}'$/) do
+    loginPassword = driver.find_elements(:class, 'log-in-password-input')
+    loginPassword.send_keys("password")
   end
 
   And(/^I login to Code Overflow$/) do
-    loginSubmitButton = driver.find_element(:link_text, "Sign in")
+    loginSubmitButton = driver.find_element(:link_text, 'Sign in')
     loginSubmitButton.click
   end
 
-  Then (/^I am on the home page$/) do
-    #wait until the sign in page displays.
+  Then (/^I am on the homepage$/) do
     wait = Selenium::WebDriver::Wait.new(:timeout => 2) # seconds
-    wait.until {driver.find_element(:link_text => "Sign Out") }
+    wait.until {driver.find_element(:link_text => 'Sign Out') }
   end
 
   And (/^I sign out$/) do
-    logoutButton = driver.find_element(:link_text, "Sign Out")
+    logoutButton = driver.find_element(:link_text, 'Sign Out')
     logoutButton.click
   end
 
@@ -136,99 +127,94 @@ driver = Selenium::WebDriver.for :firefox
 
 ##PREMIUM USER WITH NO PASSWORD ######################
 
-  Given (/^I am on the home page$/) do
-    wait = Selenium::WebDriver::Wait.new(:timeout => 5) # seconds
-    wait.until {driver.find_element(:class => "log-in-box") }
+  Given (/^I navigate to homepage$/) do
+    wait = Selenium::WebDriver::Wait.new(:timeout => 2)
+    wait.until{driver.get 'http://localhost:3000'}
   end
 
-  And(/^I click on Login button$/) do
-    loginButton = driver.find_element(:class, "log-in")
+  And(/^I click on Login button and wait for the log in page to display$/) do
+    loginButton = driver.find_elements(:class, 'log-in')
     loginButton.click
+    wait = Selenium::WebDriver::Wait.new(:timeout => 2) # seconds
+    wait.until {driver.find_elements(:class => 'log-in-box') }
   end
 
-  And(/^I wait for the log in page to display$/) do
-    wait = Selenium::WebDriver::Wait.new(:timeout => 5) # seconds
-    wait.until {driver.find_element(:class => "log-in-box") }
-  end
-
-  When(/^I set the user email to "([^"]*)"$/) do
-    loginEmail = driver.find_element(:class, "log-in-email-input")
+  When(/^I set the user email to {string}$/) do
+    loginEmail = driver.find_elements(:class, 'log-in-email-input')
     loginEmail.send_keys('premium@premium.com')
   end
 
   And(/^I set the user password to empty$/) do
-    loginPassword = driver.find_element(:class, "log-in-password-input")
+    loginPassword = driver.find_elements(:class, 'log-in-password-input')
     loginPassword.send_keys(' ')
   end
 
   And(/^I login to Code Overflow$/) do
-    loginSubmitButton = driver.find_element(:link_text, "Sign in")
+    loginSubmitButton = driver.find_element(:link_text, 'Sign in')
     loginSubmitButton.click
   end
 
-  Then(/^I see the error message "([^"]*)"$/) do |string|
+  Then(/^I see the error message {string}'$/) do |string|
     wait = Selenium::WebDriver::Wait.new(:timeout => 2) # seconds
-    wait.until {driver.find_element(:tag_name, "alert") }
+    wait.until {driver.find_element(:tag_name, 'alert') }
   end
 
 ## PREMIUM USER WITH BAD PASSWORD #########################
 
   Given (/^I am already on log in page$/) do
-    wait = Selenium::WebDriver::Wait.new(:timeout => 5) # seconds
-    wait.until {driver.find_element(:class => "log-in-box") }
+    wait = Selenium::WebDriver::Wait.new(:timeout => 2) # seconds
+    wait.until {driver.find_elements(:class => 'log-in-box') }
   end
 
-  When(/^I set the user email to {premium@premium.com}$/) do
-    loginEmail = driver.find_element(:class, "log-in-email-input")
+  When(/^I set the user email to {string}$/) do
+    loginEmail = driver.find_elements(:class, 'log-in-email-input')
     loginEmail.send_keys('premium@premium.com')
   end
 
-  And(/^I set the user password to "([^"]*)"$/ ) do
-    loginPassword = driver.find_element(:class, "log-in-password-input")
+  And(/^I set the user password to {string}$/ ) do
+    loginPassword = driver.find_elements(:class, 'log-in-password-input')
     loginPassword.send_keys('wrongpassword')
   end
 
   And(/^I login to Code Overflow$/) do
-    loginSubmitButton = driver.find_element(:link_text, "Sign in")
+    loginSubmitButton = driver.find_element(:link_text, 'Sign in')
     loginSubmitButton.click
   end
 
-  Then(/^I see the error message "([^"]*)"$/) do |string|
+  Then(/^I see the error message {string}$/) do |string|
     wait = Selenium::WebDriver::Wait.new(:timeout => 2) # seconds
-    wait.until {driver.find_element(:tag_name, "alert") }
+    wait.until {driver.find_element(:tag_name, 'alert') }
   end
 
 ## PREMIUM USER SUCCESSFUL LOGIN ############################
 
-
   Given (/^I am already on log in page$/) do
-    wait = Selenium::WebDriver::Wait.new(:timeout => 5) # seconds
-    wait.until {driver.find_element(:class => "log-in-box") }
+    driver.find_elements(:class => 'log-in-box')
   end
 
-  When(/^I set the user email to "([^"]*)"$/) do
-    loginEmail = driver.find_element(:class, "log-in-email-input")
+  When(/^I set the user email to {string}$/) do
+    loginEmail = driver.find_elements(:class, 'log-in-email-input')
     loginEmail.send_keys('premium@premium.com')
   end
 
-  And(/^I set the user password to "([^"]*)"$/ ) do
-    loginPassword = driver.find_element(:class, "log-in-password-input")
-    loginPassword.send_keys('sksskdi30!')
+  And(/^I set the user password to {string}$/ ) do
+    loginPassword = driver.find_elements(:class, 'log-in-password-input')
+    loginPassword.send_keys('password')
   end
 
   And(/^I login to Code Overflow$/) do
-    loginSubmitButton = driver.find_element(:link_text, "Sign in")
+    loginSubmitButton = driver.find_element(:link_text, 'Sign in')
     loginSubmitButton.click
   end
 
-  Then (/^I am on the home page$/) do
+  Then (/^I am on the homepage$/) do
     #wait until the sign in page displays.
     wait = Selenium::WebDriver::Wait.new(:timeout => 2) # seconds
-    wait.until {driver.find_element(:link_text => "Sign Out") }
+    wait.until {driver.find_element(:link_text => 'Sign Out') }
   end
 
   And (/^I sign out$/) do
-    logoutButton = driver.find_element(:link_text, "Sign Out")
+    logoutButton = driver.find_element(:link_text, 'Sign Out')
     logoutButton.click
   end
 
@@ -236,34 +222,34 @@ driver = Selenium::WebDriver.for :firefox
 
 ##ADMIN USER WITH NO PASSWORD ######################
 
-  Given (/^I am on the home page$/) do
-    wait = Selenium::WebDriver::Wait.new(:timeout => 5) # seconds
-    wait.until {driver.find_element(:class => "log-in-box") }
+  Given (/^Given I navigate to homepage$/) do
+    wait = Selenium::WebDriver::Wait.new(:timeout => 2)
+    wait.until{driver.get 'http://localhost:3000'}
   end
 
   And(/^I wait for the log in page to display$/) do
-    wait = Selenium::WebDriver::Wait.new(:timeout => 5) # seconds
-    wait.until {driver.find_element(:class => "log-in-box") }
+    wait = Selenium::WebDriver::Wait.new(:timeout => 2) # seconds
+    wait.until {driver.find_elements(:class => 'log-in-box') }
   end
 
-  When(/^I set the user email to "([^"]*)"$/) do
-    loginEmail = driver.find_element(:class, "log-in-email-input")
+  When(/^I set the user email to {string}$/) do
+    loginEmail = driver.find_elements(:class, 'log-in-email-input')
     loginEmail.send_keys('admin@admin.com')
   end
 
   And(/^I set the user password to empty$/) do
-    loginPassword = driver.find_element(:class, "log-in-password-input")
+    loginPassword = driver.find_elements(:class, 'log-in-password-input')
     loginPassword.send_keys(' ')
   end
 
   And(/^I login to Code Overflow$/) do
-    loginSubmitButton = driver.find_element(:link_text, "Sign in")
+    loginSubmitButton = driver.find_element(:link_text, 'Sign in')
     loginSubmitButton.click
   end
 
-  Then(/^I see the error message "([^"]*)"$/) do |string|
+  Then(/^I see the error message {string}'$/) do |string|
     wait = Selenium::WebDriver::Wait.new(:timeout => 2) # seconds
-    wait.until {driver.find_element(:tag_name, "alert") }
+    wait.until {driver.find_element(:tag_name, 'alert') }
   end
 
 
@@ -271,67 +257,67 @@ driver = Selenium::WebDriver.for :firefox
 
 
   Given (/^I am already on log in page$/) do
-    wait = Selenium::WebDriver::Wait.new(:timeout => 5) # seconds
-    wait.until {driver.find_element(:class => "log-in-box") }
+    wait = Selenium::WebDriver::Wait.new(:timeout => 2) # seconds
+    wait.until {driver.find_elements(:class => 'log-in-box') }
   end
 
-  When(/^I set the user email to "([^"]*)"$/) do
-    loginEmail = driver.find_element(:class, "log-in-email-input")
-    loginEmail.send_keys('admin@admin.comm')
+  When(/^I set the user email to {string}$/) do
+    loginEmail = driver.find_elements(:class, 'log-in-email-input')
+    loginEmail.send_keys('admin@admin.com')
   end
 
-  And(/^I set the user password to "([^"]*)"$/ ) do
-    loginPassword = driver.find_element(:class, "log-in-password-input")
+  And(/^I set the user password to {string}$/ ) do
+    loginPassword = driver.find_elements(:class, 'log-in-password-input')
     loginPassword.send_keys('wrongpassword')
   end
 
   And(/^I login to Code Overflow$/) do
-    loginSubmitButton = driver.find_element(:link_text, "Sign in")
+    loginSubmitButton = driver.find_element(:link_text, 'Sign in')
     loginSubmitButton.click
   end
 
-  Then(/^I see the error message "([^"]*)"$/) do |string|
+  Then(/^I see the error message {string}$/) do |string|
     wait = Selenium::WebDriver::Wait.new(:timeout => 2) # seconds
-    wait.until {driver.find_element(:tag_name, "alert") }
+    wait.until {driver.find_element(:tag_name, 'alert') }
   end
 
 ## ADMIN USER SUCCESSFUL LOGIN ############################
 
 
   Given (/^I am already on log in page$/) do
-    wait = Selenium::WebDriver::Wait.new(:timeout => 5) # seconds
-    wait.until {driver.find_element(:class => "log-in-box") }
+    wait = Selenium::WebDriver::Wait.new(:timeout => 2) # seconds
+    wait.until {driver.find_elements(:class => 'log-in-box') }
   end
 
-  When(/^I set the user email to "([^"]*)"$/) do
-    loginEmail = driver.find_element(:class, "log-in-email-input")
+  When(/^I set the user email to {string}$/) do
+    loginEmail = driver.find_elements(:class, 'log-in-email-input')
     loginEmail.send_keys('admin@admin.com')
   end
 
-  And(/^I set the user password to "([^"]*)"$/) do
-    loginPassword = driver.find_element(:class, "log-in-password-input")
+  And(/^I set the user password to {string}$/) do
+    loginPassword = driver.find_elements(:class, 'log-in-password-input')
     loginPassword.send_keys('password')
   end
 
   And(/^I login to Code Overflow$/) do
-    loginSubmitButton = driver.find_element(:link_text, "Sign in")
+    loginSubmitButton = driver.find_element(:link_text, 'Sign in')
     loginSubmitButton.click
   end
 
-  Then (/^I am on the home page$/) do
+  Then (/^I am on the homepage$/) do
     #wait until the sign in page displays.
     wait = Selenium::WebDriver::Wait.new(:timeout => 2) # seconds
-    wait.until {driver.find_element(:link_text => "Sign Out") }
+    wait.until {driver.find_element(:link_text => 'Sign Out') }
   end
 
   And (/^I sign out$/) do
-    logoutButton = driver.find_element(:link_text, "Sign Out")
+    logoutButton = driver.find_element(:link_text, 'Sign Out')
     logoutButton.click
     wait = Selenium::WebDriver::Wait.new(:timeout => 2) # seconds
-    wait.until {driver.find_element(:class, "log-in") }
+    wait.until {driver.find_elements(:class, 'log-in') }
   end
 
-puts "Test Passed: Log in for Standard, Premium and Admin User validated."
+puts 'Test Passed: Log in for Standard, Premium and Admin User validated.'
 
 # Drop browser object
 driver.quit
